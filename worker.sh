@@ -10,7 +10,6 @@ echo "Git has been Installed!"
 
 git clone https://github.com/portsoc/clocoss-master-worker.git
 cd clocoss-master-worker
-npm install
 
 echo "Master Worker Cloned and Installed!"
 
