@@ -1,8 +1,14 @@
+#!/bin/bash
+
 #Create key
 key=`openssl rand -base64 32`
 
 #Get Server IP Address
-servIP=$(curl "http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip" -H "Metadata-Flavor:Google")
+servIP=$(curl "http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip" -H "Metadata-$
+
+git clone https://github.com/portsoc/clocoss-master-worker
+cd clocoss-master-worker
+sudo npm install
 
 #Run Server with the Key Parameter
 npm run server $key &
@@ -13,7 +19,7 @@ gcloud config set compute/zone europe-west1-c
 for i in `seq 1 $1`
 do
 
-gcloud compute instances create --machine-type n1-standard-1 --metadata number=$i,key=$key,ip=$servIP --metadata-from-file startup-script="worker.sh" ryan-worker$i --preemptible
+gcloud compute instances create --machine-type n1-standard-1 --metadata number=$i,key=$key,ip=$se$
 
 done
 
