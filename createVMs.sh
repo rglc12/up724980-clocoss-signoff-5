@@ -4,7 +4,7 @@
 key=`openssl rand -base64 32`
 
 #Get Server IP Address
-servIP=$(curl "http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip" -H "Metadata-$)
+servIP=$(curl "http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip" -H "Metadata-Flavor:Google")
 
 git clone https://github.com/portsoc/clocoss-master-worker
 cd clocoss-master-worker
