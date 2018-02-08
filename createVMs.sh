@@ -19,7 +19,7 @@ gcloud config set compute/zone europe-west1-c
 for i in `seq 1 $1`
 do
 
-gcloud compute instances create --machine-type n1-standard-1 --metadata number=$i,key=$key,ip=$se$
+gcloud compute instances create --machine-type n1-standard-1 --metadata number=$i,key=$key,ip=$servIP --metadata-from-file startup-script="worker.sh" ryan-lc-vm$i --preemptible
 
 done
 
