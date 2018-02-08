@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 #Create key
 key=`openssl rand -base64 32`
 
