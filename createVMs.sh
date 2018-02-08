@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #Create key
 key=`openssl rand -base64 32`
 
@@ -13,7 +15,7 @@ gcloud config set compute/zone europe-west1-c
 for i in `seq 1 $1`
 do
 
-gcloud compute instances create --machine-type f1-micro --metadata number=$i,key=$key,ip=$servIP --metadata-from-file startup-script="worker.sh" ryan-lc-vm$i
+gcloud compute instances create --machine-type n1-standard-1 --metadata number=$i,key=$key,ip=$servIP --metadata-from-file startup-script="worker.sh" ryan-lc-vm$i --preemptible
 
 done
 
@@ -25,6 +27,6 @@ for i in `seq 1 $1`
 
 do
 
-gcloud compute instances delete ryan-lc-vm$i
+gcloud compute instances delete ryan-lc-vm$i --quiet
 
 done
